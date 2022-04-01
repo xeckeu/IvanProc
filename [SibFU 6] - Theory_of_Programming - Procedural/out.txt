@@ -1,10 +1,11 @@
 Container filled.
+Container sorted.
 Container contains 4 elements.
 
 0: 
-[Aphorism]: Te.,xt
-[Author]: Author
-[Punctuation]: 2
+[Aphorism]: One-more-time?
+[Author]: Author2
+[Punctuation]: 3
 
 1: 
 [Saying]: Some.text.again
@@ -12,9 +13,9 @@ Container contains 4 elements.
 [Punctuation]: 2
 
 2: 
-[Aphorism]: One-more-time?
-[Author]: Author2
-[Punctuation]: 3
+[Aphorism]: Te.,xt
+[Author]: Author
+[Punctuation]: 2
 
 3: 
 [Saying]: Thatsall!

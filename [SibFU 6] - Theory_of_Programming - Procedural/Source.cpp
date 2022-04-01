@@ -68,6 +68,30 @@ void clearContainer(Container* head, Container* tail) {
     head->length = 0;
 }
 
+bool compare(Container* a, Container* b) {
+    return textCounter(a->current) < textCounter(b->current);
+}
+
+void sort(Container* head) {
+    if (head->length > 1) {
+        Container* first = head;
+        Container* second = head->next;
+        Container* temp = new Container;
+        for (int i = 0; i < head->length - 1; i++) {
+            for (int j = 0; j < head->length - i - 1; j++) {
+                if (compare(first, second)) {
+                    temp->current = first->current;
+                    first->current = second->current;
+                    second->current = temp->current;
+                }
+                second = second->next;
+            }
+            first = first->next;
+            second = first->next;
+        }
+    }
+}
+
 Text* inText(ifstream& ifst) {
     Text* C;
     int K;

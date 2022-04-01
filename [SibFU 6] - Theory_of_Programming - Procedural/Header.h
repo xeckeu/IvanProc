@@ -45,4 +45,5 @@ void initContainer(Container* head, Container* tail);
 void inContainer(Container* head, Container* tail, ifstream& ifst);
 void outContainer(Container* head, ofstream& ofst);
 void clearContainer(Container* head, Container* tail);
+void sort(Container* head);
 #endif //CONTAINER_H
