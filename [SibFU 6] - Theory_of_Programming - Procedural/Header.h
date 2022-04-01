@@ -41,8 +41,10 @@ struct Riddle {
     Key K;
     string text;
     string answer;
+    int mark;
 };
 Riddle* inRiddle(ifstream& ifst);
+int riddleCounter(Riddle* T);
 void outRiddle(Riddle* T, ofstream& ofst);
 
 struct Container {
