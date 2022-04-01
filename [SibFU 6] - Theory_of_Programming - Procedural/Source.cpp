@@ -46,6 +46,7 @@ void outContainer(Container* head, ofstream& ofst) {
     for (int i = 0; i < head->length; i++) {
         ofst << i << ": \n";
         outText(temp->current, ofst);
+        ofst << "[Punctuation]: " << textCounter(temp->current) << endl << endl;
         if (temp->next) {
             temp = temp->next;
         }
@@ -98,6 +99,15 @@ void outText(Text* T, ofstream& ofst) {
     }
 }
 
+int textCounter(Text* T){
+    if (T->K == APHORISM)
+        return aphorismCounter((Aphorism*)T);
+    else if (T->K == SAYING)
+        return sayingCounter((Saying*)T);
+    else
+        return -1;
+}
+
 Aphorism* inAphorism(ifstream& ifst) {
     Aphorism* T = new Aphorism();
     ifst >> T->text;
@@ -105,10 +115,19 @@ Aphorism* inAphorism(ifstream& ifst) {
     return T;
 }
 
+int aphorismCounter(Aphorism* T) {
+    int counter = 0;
+    string punctuationMarks = ".,?!:;-";
+    for (auto m : punctuationMarks)
+        counter += count(T->text.begin(), T->text.end(), m);
+    return counter;
+}
+
 void outAphorism(Aphorism* T, ofstream& ofst) {
     ofst << "[Aphorism]: " << T->text << endl;
-    ofst << "[Author]: " << T->author<< endl << endl;
+    ofst << "[Author]: " << T->author<< endl;
 }
+
 
 Saying* inSaying(ifstream& ifst) {
     Saying* T = new Saying();
@@ -117,7 +136,15 @@ Saying* inSaying(ifstream& ifst) {
     return T;
 }
 
+int sayingCounter(Saying* T) {
+    int counter = 0;
+    string punctuationMarks = ".,?!:;-";
+    for (auto m : punctuationMarks)
+        counter += count(T->text.begin(), T->text.end(), m);
+    return counter;
+}
+
 void outSaying(Saying* T, ofstream& ofst) {
     ofst << "[Saying]: " << T->text << endl;
-    ofst << "[Country]: " << T->country << endl << endl;
+    ofst << "[Country]: " << T->country << endl;
 }

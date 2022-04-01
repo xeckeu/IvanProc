@@ -2,20 +2,24 @@ Container filled.
 Container contains 4 elements.
 
 0: 
-[Aphorism]: Text
+[Aphorism]: Te.,xt
 [Author]: Author
+[Punctuation]: 2
 
 1: 
-[Saying]: Sometextagain
+[Saying]: Some.text.again
 [Country]: Country
+[Punctuation]: 2
 
 2: 
-[Aphorism]: Onemoretime
+[Aphorism]: One-more-time?
 [Author]: Author2
+[Punctuation]: 3
 
 3: 
-[Saying]: Thatsall
+[Saying]: Thatsall!
 [Country]: Country2
+[Punctuation]: 1
 
 Container cleared.
 Container contains 0 elements.
