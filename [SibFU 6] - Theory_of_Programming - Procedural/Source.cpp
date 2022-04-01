@@ -81,6 +81,11 @@ Text* inText(ifstream& ifst) {
         C->K = SAYING;
         return C;
     }
+    else if (K == 3) {
+        C = (Text*)inRiddle(ifst);
+        C->K = RIDDLE;
+        return C;
+    }
     else {
         return 0;
     }
@@ -92,6 +97,9 @@ void outText(Text* T, ofstream& ofst) {
     }
     else if (T->K == SAYING) {
         outSaying((Saying*)T, ofst);
+    }
+    else if (T->K == RIDDLE) {
+        outRiddle((Riddle*)T, ofst);
     }
     else {
         ofst << "Incorrect element!" << endl;
@@ -120,4 +128,16 @@ Saying* inSaying(ifstream& ifst) {
 void outSaying(Saying* T, ofstream& ofst) {
     ofst << "[Saying]: " << T->text << endl;
     ofst << "[Country]: " << T->country << endl << endl;
+}
+
+Riddle* inRiddle(ifstream& ifst) {
+    Riddle* T = new Riddle();
+    ifst >> T->text;
+    ifst >> T->answer;
+    return T;
+}
+
+void outRiddle(Riddle* T, ofstream& ofst) {
+    ofst << "[Riddle]: " << T->text << endl;
+    ofst << "[Answer]: " << T->answer << endl << endl;
 }

@@ -10,3 +10,6 @@ Author2
 2
 Thatsall
 Country2
+3
+AnyRiddle?
+itAnswer

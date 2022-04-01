@@ -6,7 +6,8 @@ using namespace std;
 
 enum Key {
     APHORISM,
-    SAYING
+    SAYING,
+    RIDDLE
 };
 
 struct Text {
@@ -30,6 +31,14 @@ struct Saying {
 };
 Saying* inSaying(ifstream& ifst);
 void outSaying(Saying* T, ofstream& ofst);
+
+struct Riddle {
+    Key K;
+    string text;
+    string answer;
+};
+Riddle* inRiddle(ifstream& ifst);
+void outRiddle(Riddle* T, ofstream& ofst);
 
 struct Container {
     int length;
