@@ -17,6 +17,13 @@ Container contains 4 elements.
 [Saying]: Thatsall
 [Country]: Country2
 
+Output filtered.
+0: [Aphorism]: Text
+[Author]: Author
+
+2: [Aphorism]: Onemoretime
+[Author]: Author2
+
 Container cleared.
 Container contains 0 elements.
 

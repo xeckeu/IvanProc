@@ -17,6 +17,9 @@ int main(int argc, char* argv[]) {
     ofst << "Container filled." << endl;
     cout << "Container filled." << endl;
     outContainer(head, ofst);
+    ofst << "Output filtered." << endl;
+    cout << "Output filtered." << endl;
+    outFilter(head, ofst);
     clearContainer(head, tail);
     ofst << "Container cleared." << endl;
     cout << "Container cleared." << endl;
