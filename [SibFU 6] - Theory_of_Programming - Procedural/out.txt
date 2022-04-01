@@ -32,6 +32,13 @@ Container contains 5 elements.
 [Mark]: 3
 [Punctuation]: 0
 
+Output filtered.
+0: [Aphorism]: Text
+[Author]: Author
+
+2: [Aphorism]: Onemoretime
+[Author]: Author2
+
 Container cleared.
 Container contains 0 elements.
 

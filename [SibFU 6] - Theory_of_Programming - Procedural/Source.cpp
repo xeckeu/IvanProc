@@ -92,6 +92,19 @@ void sort(Container* head) {
     }
 }
 
+void outFilter(Container* head, ofstream& ofst) {
+    Container* temp = head;
+    for (int i = 0; i < head->length; i++) {
+        if (temp->current->K == APHORISM) {
+            ofst << i << ": ";
+            outAphorism((Aphorism *)temp->current, ofst);
+        }
+        if (temp->next) {
+            temp = temp->next;
+        }
+    }
+}
+
 Text* inText(ifstream& ifst) {
     Text* C;
     int K;

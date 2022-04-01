@@ -20,6 +20,9 @@ int main(int argc, char* argv[]) {
     ofst << "Container sorted." << endl;
     cout << "Container sorted." << endl;
     outContainer(head, ofst);
+    ofst << "Output filtered." << endl;
+    cout << "Output filtered." << endl;
+    outFilter(head, ofst);
     clearContainer(head, tail);
     ofst << "Container cleared." << endl;
     cout << "Container cleared." << endl;
