@@ -19,6 +19,7 @@ struct Aphorism {
     Key K;
     string text;
     string author;
+    int mark;
 };
 Aphorism* inAphorism(ifstream& ifst);
 void outAphorism(Aphorism* T, ofstream& ofst);
@@ -27,6 +28,7 @@ struct Saying {
     Key K;
     string text;
     string country;
+    int mark;
 };
 Saying* inSaying(ifstream& ifst);
 void outSaying(Saying* T, ofstream& ofst);

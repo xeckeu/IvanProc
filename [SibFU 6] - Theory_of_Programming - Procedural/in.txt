@@ -1,12 +1,16 @@
 1
 Text
 Author
+8
 2
 Sometextagain
 Country
+3
 1
 Onemoretime
 Author2
 2
+2
 Thatsall
 Country2
+4

@@ -4,18 +4,22 @@ Container contains 4 elements.
 0: 
 [Aphorism]: Text
 [Author]: Author
+[Mark]: 8
 
 1: 
 [Saying]: Sometextagain
 [Country]: Country
+[Mark]: 3
 
 2: 
 [Aphorism]: Onemoretime
 [Author]: Author2
+[Mark]: 2
 
 3: 
 [Saying]: Thatsall
 [Country]: Country2
+[Mark]: 4
 
 Container cleared.
 Container contains 0 elements.
