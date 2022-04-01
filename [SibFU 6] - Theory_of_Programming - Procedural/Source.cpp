@@ -144,6 +144,7 @@ Aphorism* inAphorism(ifstream& ifst) {
     Aphorism* T = new Aphorism();
     ifst >> T->text;
     ifst >> T->author;
+    ifst >> T->mark;
     return T;
 }
 
@@ -158,6 +159,7 @@ int aphorismCounter(Aphorism* T) {
 void outAphorism(Aphorism* T, ofstream& ofst) {
     ofst << "[Aphorism]: " << T->text << endl;
     ofst << "[Author]: " << T->author<< endl;
+    ofst << "[Mark]: " << T->mark<< endl << endl;
 }
 
 
@@ -165,6 +167,7 @@ Saying* inSaying(ifstream& ifst) {
     Saying* T = new Saying();
     ifst >> T->text;
     ifst >> T->country;
+    ifst >> T->mark;
     return T;
 }
 
@@ -178,7 +181,8 @@ int sayingCounter(Saying* T) {
 
 void outSaying(Saying* T, ofstream& ofst) {
     ofst << "[Saying]: " << T->text << endl;
-    ofst << "[Country]: " << T->country << endl << endl;
+    ofst << "[Country]: " << T->country << endl;
+    ofst << "[Mark]: " << T->mark << endl << endl;
 }
 
 Riddle* inRiddle(ifstream& ifst) {
@@ -190,5 +194,6 @@ Riddle* inRiddle(ifstream& ifst) {
 
 void outRiddle(Riddle* T, ofstream& ofst) {
     ofst << "[Riddle]: " << T->text << endl;
-    ofst << "[Answer]: " << T->answer << endl << endl;
+    ofst << "[Answer]: " << T->answer << endl;
+    ofst << "[Mark]: " << T->mark << endl << endl;
 }
