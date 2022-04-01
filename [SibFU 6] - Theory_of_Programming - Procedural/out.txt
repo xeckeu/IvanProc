@@ -1,0 +1,22 @@
+Container filled.
+Container contains 4 elements.
+
+0: 
+[Aphorism]: Text
+[Author]: Author
+
+1: 
+[Saying]: Sometextagain
+[Country]: Country
+
+2: 
+[Aphorism]: Onemoretime
+[Author]: Author2
+
+3: 
+[Saying]: Thatsall
+[Country]: Country2
+
+Container cleared.
+Container contains 0 elements.
+
