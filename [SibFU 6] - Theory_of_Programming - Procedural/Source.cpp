@@ -96,8 +96,9 @@ void outFilter(Container* head, ofstream& ofst) {
     Container* temp = head;
     for (int i = 0; i < head->length; i++) {
         if (temp->current->K == APHORISM) {
-            ofst << i << ": ";
+            ofst << i << ":\n";
             outAphorism((Aphorism *)temp->current, ofst);
+            ofst << "[Punctuation]: " << textCounter(temp->current) << endl << endl;
         }
         if (temp->next) {
             temp = temp->next;
