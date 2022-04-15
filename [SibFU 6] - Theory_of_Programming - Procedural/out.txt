@@ -1,4 +1,36 @@
 Container filled.
+Container contains 5 elements.
+
+0: 
+[Aphorism]: Te.,xt
+[Author]: Author
+[Mark]: 8
+[Punctuation]: 2
+
+1: 
+[Saying]: Some.text.again
+[Country]: Country
+[Mark]: 3
+[Punctuation]: 2
+
+2: 
+[Aphorism]: One-more-time?
+[Author]: Author2
+[Mark]: 2
+[Punctuation]: 3
+
+3: 
+[Saying]: Thatsall
+[Country]: Country2
+[Mark]: 3
+[Punctuation]: 0
+
+4: 
+[Riddle]: AnyRiddle!!!
+[Answer]: itAnswer
+[Mark]: 0
+[Punctuation]: 3
+
 Container sorted.
 Container contains 5 elements.
 

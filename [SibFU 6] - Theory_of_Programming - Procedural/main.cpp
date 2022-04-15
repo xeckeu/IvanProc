@@ -16,6 +16,7 @@ int main(int argc, char* argv[]) {
     inContainer(head, tail, ifst);
     ofst << "Container filled." << endl;
     cout << "Container filled." << endl;
+    outContainer(head, ofst);
     sort(head);
     ofst << "Container sorted." << endl;
     cout << "Container sorted." << endl;
