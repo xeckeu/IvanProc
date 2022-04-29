@@ -46,7 +46,6 @@ void outContainer(Container* head, ofstream& ofst) {
     for (int i = 0; i < head->length; i++) {
         ofst << i << ": \n";
         outText(temp->current, ofst);
-        ofst << "[Punctuation]: " << textCounter(temp->current) << endl << endl;
         if (temp->next) {
             temp = temp->next;
         }
@@ -68,8 +67,8 @@ void clearContainer(Container* head, Container* tail) {
     head->length = 0;
 }
 
-bool compare(Container* a, Container* b) {
-    return textCounter(a->current) < textCounter(b->current);
+bool compare(Text* a, Text* b) {
+    return textCounter(a) < textCounter(b);
 }
 
 void sort(Container* head) {
@@ -79,7 +78,7 @@ void sort(Container* head) {
         Container* temp = new Container;
         for (int i = 0; i < head->length - 1; i++) {
             for (int j = 0; j < head->length - i - 1; j++) {
-                if (compare(first, second)) {
+                if (compare(first->current, second->current)) {
                     temp->current = first->current;
                     first->current = second->current;
                     second->current = temp->current;
@@ -166,7 +165,7 @@ Aphorism* inAphorism(ifstream& ifst) {
 
 int aphorismCounter(Aphorism* T) {
     int counter = 0;
-    string punctuationMarks = ".,?!:;-";
+    string punctuationMarks = ".,?!:;-_";
     for (auto m : punctuationMarks)
         counter += count(T->text.begin(), T->text.end(), m);
     return counter;
@@ -175,7 +174,8 @@ int aphorismCounter(Aphorism* T) {
 void outAphorism(Aphorism* T, ofstream& ofst) {
     ofst << "[Aphorism]: " << T->text << endl;
     ofst << "[Author]: " << T->author<< endl;
-    ofst << "[Mark]: " << T->mark<< endl;
+    ofst << "[Punctuation]: " << textCounter((Text*)T) << endl;
+    ofst << "[Mark]: " << T->mark<< endl << endl;
 }
 
 Saying* inSaying(ifstream& ifst) {
@@ -188,7 +188,7 @@ Saying* inSaying(ifstream& ifst) {
 
 int sayingCounter(Saying* T) {
     int counter = 0;
-    string punctuationMarks = ".,?!:;-";
+    string punctuationMarks = ".,?!:;-_";
     for (auto m : punctuationMarks)
         counter += count(T->text.begin(), T->text.end(), m);
     return counter;
@@ -197,19 +197,21 @@ int sayingCounter(Saying* T) {
 void outSaying(Saying* T, ofstream& ofst) {
     ofst << "[Saying]: " << T->text << endl;
     ofst << "[Country]: " << T->country << endl;
-    ofst << "[Mark]: " << T->mark << endl;
+    ofst << "[Punctuation]: " << textCounter((Text*)T) << endl;
+    ofst << "[Mark]: " << T->mark << endl << endl;
 }
 
 Riddle* inRiddle(ifstream& ifst) {
     Riddle* T = new Riddle();
     ifst >> T->text;
     ifst >> T->answer;
+    ifst >> T->mark;
     return T;
 }
 
 int riddleCounter(Riddle* T) {
     int counter = 0;
-    string punctuationMarks = ".,?!:;-";
+    string punctuationMarks = ".,?!:;-_";
     for (auto m : punctuationMarks)
         counter += count(T->text.begin(), T->text.end(), m);
     return counter;
@@ -218,5 +220,6 @@ int riddleCounter(Riddle* T) {
 void outRiddle(Riddle* T, ofstream& ofst) {
     ofst << "[Riddle]: " << T->text << endl;
     ofst << "[Answer]: " << T->answer << endl;
-    ofst << "[Mark]: " << T->mark << endl;
+    ofst << "[Punctuation]: " << textCounter((Text*)T) << endl;
+    ofst << "[Mark]: " << T->mark << endl << endl;
 }

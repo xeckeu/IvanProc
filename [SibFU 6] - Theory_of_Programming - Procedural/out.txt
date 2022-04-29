@@ -1,81 +1,129 @@
 Container filled.
-Container contains 5 elements.
+Container contains 8 elements.
 
 0: 
 [Aphorism]: Te.,xt
 [Author]: Author
-[Mark]: 8
 [Punctuation]: 2
+[Mark]: 8
 
 1: 
 [Saying]: Some.text.again
 [Country]: Country
-[Mark]: 3
 [Punctuation]: 2
+[Mark]: 3
 
 2: 
 [Aphorism]: One-more-time?
 [Author]: Author2
-[Mark]: 2
 [Punctuation]: 3
+[Mark]: 2
 
 3: 
 [Saying]: Thatsall
 [Country]: Country2
-[Mark]: 3
 [Punctuation]: 0
+[Mark]: 3
 
 4: 
 [Riddle]: AnyRiddle!!!
 [Answer]: itAnswer
-[Mark]: 0
 [Punctuation]: 3
+[Mark]: 4
+
+5: 
+[Aphorism]: Aphir
+[Author]: Oushkin
+[Punctuation]: 0
+[Mark]: 10
+
+6: 
+[Saying]: Proverb
+[Country]: Thibet
+[Punctuation]: 0
+[Mark]: 7
+
+7: 
+[Riddle]: ???
+[Answer]: !!!
+[Punctuation]: 3
+[Mark]: 5
 
 Container sorted.
-Container contains 5 elements.
+Container contains 8 elements.
 
 0: 
 [Aphorism]: One-more-time?
 [Author]: Author2
-[Mark]: 2
 [Punctuation]: 3
+[Mark]: 2
 
 1: 
 [Riddle]: AnyRiddle!!!
 [Answer]: itAnswer
-[Mark]: 0
 [Punctuation]: 3
+[Mark]: 4
 
 2: 
-[Aphorism]: Te.,xt
-[Author]: Author
-[Mark]: 8
-[Punctuation]: 2
+[Riddle]: ???
+[Answer]: !!!
+[Punctuation]: 3
+[Mark]: 5
 
 3: 
 [Saying]: Some.text.again
 [Country]: Country
-[Mark]: 3
 [Punctuation]: 2
+[Mark]: 3
 
 4: 
+[Aphorism]: Te.,xt
+[Author]: Author
+[Punctuation]: 2
+[Mark]: 8
+
+5: 
+[Aphorism]: Aphir
+[Author]: Oushkin
+[Punctuation]: 0
+[Mark]: 10
+
+6: 
+[Saying]: Proverb
+[Country]: Thibet
+[Punctuation]: 0
+[Mark]: 7
+
+7: 
 [Saying]: Thatsall
 [Country]: Country2
-[Mark]: 3
 [Punctuation]: 0
+[Mark]: 3
 
 Output filtered.
 0:
 [Aphorism]: One-more-time?
 [Author]: Author2
+[Punctuation]: 3
 [Mark]: 2
+
 [Punctuation]: 3
 
-2:
+4:
 [Aphorism]: Te.,xt
 [Author]: Author
-[Mark]: 8
 [Punctuation]: 2
+[Mark]: 8
+
+[Punctuation]: 2
+
+5:
+[Aphorism]: Aphir
+[Author]: Oushkin
+[Punctuation]: 0
+[Mark]: 10
+
+[Punctuation]: 0
 
 Container cleared.
 Container contains 0 elements.

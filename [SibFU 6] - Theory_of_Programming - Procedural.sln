@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "[SibFU 6] - Theory_of_Programming - Procedural", "[SibFU 6] - Theory_of_Programming - Procedural\[SibFU 6] - Theory_of_Programming - Procedural.vcxproj", "{3959BF33-B86D-468F-85D6-B7A7DA554D8B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{3959BF33-B86D-468F-85D6-B7A7DA554D8B}.Release|x64.Build.0 = Release|x64
 		{3959BF33-B86D-468F-85D6-B7A7DA554D8B}.Release|x86.ActiveCfg = Release|Win32
 		{3959BF33-B86D-468F-85D6-B7A7DA554D8B}.Release|x86.Build.0 = Release|Win32
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Debug|x64.ActiveCfg = Debug|x64
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Debug|x64.Build.0 = Debug|x64
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Debug|x86.ActiveCfg = Debug|Win32
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Debug|x86.Build.0 = Debug|Win32
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Release|x64.ActiveCfg = Release|x64
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Release|x64.Build.0 = Release|x64
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Release|x86.ActiveCfg = Release|Win32
+		{58DE8A7B-F9EB-4F8F-9934-DABF64ECC553}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

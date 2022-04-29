@@ -1,0 +1,50 @@
+Container contains 8 elements.
+
+0: 
+[Aphorism]: One-more-time?
+[Author]: Author2
+[Punctuation]: 3
+[Mark]: 2
+
+1: 
+[Riddle]: AnyRiddle!!!
+[Answer]: itAnswer
+[Punctuation]: 3
+[Mark]: 4
+
+2: 
+[Riddle]: ???
+[Answer]: !!!
+[Punctuation]: 3
+[Mark]: 5
+
+3: 
+[Saying]: Some.text.again
+[Country]: Country
+[Punctuation]: 2
+[Mark]: 3
+
+4: 
+[Aphorism]: Te.,xt
+[Author]: Author
+[Punctuation]: 2
+[Mark]: 8
+
+5: 
+[Aphorism]: Aphir
+[Author]: Oushkin
+[Punctuation]: 0
+[Mark]: 10
+
+6: 
+[Saying]: Proverb
+[Country]: Thibet
+[Punctuation]: 0
+[Mark]: 7
+
+7: 
+[Saying]: Thatsall
+[Country]: Country2
+[Punctuation]: 0
+[Mark]: 3
+
