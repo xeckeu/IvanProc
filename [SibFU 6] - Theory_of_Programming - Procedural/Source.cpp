@@ -108,7 +108,21 @@ void outFilter(Container* head, ofstream& ofst) {
 Text* inText(ifstream& ifst) {
     Text* C;
     int K;
-    ifst >> K;
+    string temp = "";
+    getline(ifst, temp);
+    if ((temp != "1") && (temp != "2") && (temp != "3")) {
+        if (ifst.peek() == EOF) {
+            return 0;
+        }
+        else {
+            cout << "Invalid input data!" << endl << endl;
+            system("pause");
+            exit(1);
+        }
+    }
+    else
+        K = atoi(temp.c_str());
+
     if (K == 1) {
         C = (Text*)inAphorism(ifst);
         C->K = APHORISM;
@@ -140,7 +154,7 @@ void outText(Text* T, ofstream& ofst) {
         outRiddle((Riddle*)T, ofst);
     }
     else {
-        ofst << "Incorrect element!" << endl;
+        ofst << "Invalid element!" << endl;
     }
 }
 
@@ -157,9 +171,48 @@ int textCounter(Text* T){
 
 Aphorism* inAphorism(ifstream& ifst) {
     Aphorism* T = new Aphorism();
-    ifst >> T->text;
-    ifst >> T->author;
-    ifst >> T->mark;
+    string temp;
+    string nums = "9876543210";
+    int mark;
+    bool flag = false;
+    getline(ifst, temp);
+    if (!temp.empty()) {
+        T->text = temp;
+    }
+    else {
+        cout << "Invalid input data!" << endl << endl;
+        system("pause");
+        exit(1);
+    }
+    getline(ifst, temp);
+    if (!temp.empty()) {
+        for (auto c : temp) {
+            if (!isalpha(c))
+            {
+                if (c != ' ' && c != '-' && c != ',' && c != '.')
+                {
+                    cout << "[Aphorism] Invalid Data!" << endl << endl;
+                    system("pause");
+                    exit(1);
+                }
+            }
+        }
+        flag = true;
+    }
+    if (flag)
+        T->author = temp;
+    getline(ifst, temp);
+    if (!temp.empty() && nums.find(temp) != -1) {
+        mark = atoi(temp.c_str());
+        if ((mark >= 0) && (mark <= 10))
+            T->mark = mark;
+        else
+        {
+            cout << "[Mark] Invalid input data!" << endl << endl;
+            system("pause");
+            exit(1);
+        }
+    }
     return T;
 }
 
@@ -180,9 +233,48 @@ void outAphorism(Aphorism* T, ofstream& ofst) {
 
 Saying* inSaying(ifstream& ifst) {
     Saying* T = new Saying();
-    ifst >> T->text;
-    ifst >> T->country;
-    ifst >> T->mark;
+    string temp;
+    string nums = "9876543210";
+    int mark;
+    bool flag = false;
+    getline(ifst, temp);
+    if (!temp.empty()) {
+        T->text = temp;
+    }
+    else {
+        cout << "Invalid input data!" << endl << endl;
+        system("pause");
+        exit(1);
+    }
+    getline(ifst, temp);
+    if (!temp.empty()) {
+        for (auto c : temp) {
+            if (!isalpha(c))
+            {
+                if (c != ' ' && c != '-' && c != ',' && c != '.')
+                {
+                    cout << "[Saying] Invalid Data!" << endl << endl;
+                    system("pause");
+                    exit(1);
+                }
+            }
+        }
+        flag = true;
+    }
+    if (flag)
+        T->country = temp;
+    getline(ifst, temp);
+    if (!temp.empty() && nums.find(temp) != -1) {
+        mark = atoi(temp.c_str());
+        if ((mark >= 0) && (mark <= 10))
+            T->mark = mark;
+        else
+        {
+            cout << "[Mark] Invalid input data!" << endl << endl;
+            system("pause");
+            exit(1);
+        }
+    }
     return T;
 }
 
@@ -203,9 +295,48 @@ void outSaying(Saying* T, ofstream& ofst) {
 
 Riddle* inRiddle(ifstream& ifst) {
     Riddle* T = new Riddle();
-    ifst >> T->text;
-    ifst >> T->answer;
-    ifst >> T->mark;
+    string temp;
+    string nums = "9876543210";
+    int mark;
+    bool flag = false;
+    getline(ifst, temp);
+    if (!temp.empty()) {
+        T->text = temp;
+    }
+    else {
+        cout << "Invalid input data!" << endl << endl;
+        system("pause");
+        exit(1);
+    }
+    getline(ifst, temp);
+    if (!temp.empty()) {
+        for (auto c : temp) {
+            if (!isalpha(c))
+            {
+                if (c != ' ' && c != '-' && c != ',' && c != '.')
+                {
+                    cout << "[Riddle] Invalid Data!" << endl << endl;
+                    system("pause");
+                    exit(1);
+                }
+            }
+        }
+        flag = true;
+    }
+    if (flag)
+        T->answer = temp;
+    getline(ifst, temp);
+    if (!temp.empty() && nums.find(temp) != -1) {
+        mark = atoi(temp.c_str());
+        if ((mark >= 0) && (mark <= 10))
+            T->mark = mark;
+        else
+        {
+            cout << "[Mark] Invalid input data!" << endl << endl;
+            system("pause");
+            exit(1);
+        }
+    }
     return T;
 }
 

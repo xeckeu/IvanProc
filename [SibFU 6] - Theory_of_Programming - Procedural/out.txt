@@ -15,15 +15,15 @@ Container contains 8 elements.
 
 2: 
 [Aphorism]: One-more-time?
-[Author]: Author2
+[Author]: Author
 [Punctuation]: 3
 [Mark]: 2
 
 3: 
 [Saying]: Thatsall
-[Country]: Country2
+[Country]: Country
 [Punctuation]: 0
-[Mark]: 3
+[Mark]: 1
 
 4: 
 [Riddle]: AnyRiddle!!!
@@ -45,7 +45,7 @@ Container contains 8 elements.
 
 7: 
 [Riddle]: ???
-[Answer]: !!!
+[Answer]: ruki
 [Punctuation]: 3
 [Mark]: 5
 
@@ -54,7 +54,7 @@ Container contains 8 elements.
 
 0: 
 [Aphorism]: One-more-time?
-[Author]: Author2
+[Author]: Author
 [Punctuation]: 3
 [Mark]: 2
 
@@ -66,7 +66,7 @@ Container contains 8 elements.
 
 2: 
 [Riddle]: ???
-[Answer]: !!!
+[Answer]: ruki
 [Punctuation]: 3
 [Mark]: 5
 
@@ -96,14 +96,14 @@ Container contains 8 elements.
 
 7: 
 [Saying]: Thatsall
-[Country]: Country2
+[Country]: Country
 [Punctuation]: 0
-[Mark]: 3
+[Mark]: 1
 
 Output filtered.
 0:
 [Aphorism]: One-more-time?
-[Author]: Author2
+[Author]: Author
 [Punctuation]: 3
 [Mark]: 2
 

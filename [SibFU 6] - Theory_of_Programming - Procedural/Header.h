@@ -2,6 +2,8 @@
 #define CONTAINER_H
 
 #include <fstream>
+#include <iostream>
+#include <string>
 using namespace std;
 
 enum Key {

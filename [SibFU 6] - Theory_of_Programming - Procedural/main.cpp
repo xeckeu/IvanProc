@@ -1,14 +1,29 @@
-﻿#include <iostream>
-#include "Header.h"
+﻿#include "Header.h"
 using namespace std;
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
-        cout << "usage: lab_1_proc.exe in_file out_file" << endl;
+        cout << "usage: #.exe in_file out_file" << endl;
         exit(1);
     }
     ifstream ifst(argv[1]);
+    if (!ifst.is_open()) {
+        cout << "No input file found or could not open!" << endl;
+        system("pause");
+        return 1;
+    }
+    if (ifst.peek() == std::ifstream::traits_type::eof())
+    {
+        cout << "File is empty!" << endl << endl;
+        system("pause");
+        return 1;
+    }
     ofstream ofst(argv[2]);
+    if (!ofst.is_open()) {
+        cout << "No output file found or could not open!" << endl;
+        system("pause");
+        return 1;
+    }
     Container *head = new Container();
     Container *tail = new Container();
 
