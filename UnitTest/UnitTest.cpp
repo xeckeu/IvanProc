@@ -101,8 +101,8 @@ namespace UnitTest
 		{
 			int K;
 			ifstream ifst(PATH + "function\\comparator.txt");
-			Container* first = new Container;
-			Container* second = new Container;
+			Node* first = new Node;
+			Node* second = new Node;
 			ifst >> K;
 			first->current = (Text*)inRiddle(ifst);
 			first->current->K = (Key)K;
@@ -116,9 +116,8 @@ namespace UnitTest
 		{
 			ifstream ifst(PATH + "function\\sort.txt");
 			Container* Head = new Container();
-			Container* Tail = new Container();
-			initContainer(Head, Tail);
-			inContainer(Head, Tail, ifst);
+			initContainer(Head);
+			inContainer(Head, ifst);
 			ofstream ofst(PATH + "function\\sortActual.txt");
 			sort(Head);
 			outContainer(Head, ofst);

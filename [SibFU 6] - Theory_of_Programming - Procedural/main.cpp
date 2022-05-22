@@ -24,25 +24,27 @@ int main(int argc, char* argv[]) {
         system("pause");
         return 1;
     }
-    Container *head = new Container();
-    Container *tail = new Container();
+    Container *list = new Container();
 
-    initContainer(head, tail);
-    inContainer(head, tail, ifst);
+    initContainer(list);
+    inContainer(list, ifst);
     ofst << "Container filled." << endl;
     cout << "Container filled." << endl;
-    outContainer(head, ofst);
-    sort(head);
+    outContainer(list, ofst);
+    sort(list);
     ofst << "Container sorted." << endl;
     cout << "Container sorted." << endl;
-    outContainer(head, ofst);
+    outContainer(list, ofst);
     ofst << "Output filtered." << endl;
     cout << "Output filtered." << endl;
-    outFilter(head, ofst);
-    clearContainer(head, tail);
+	if (outFilter(list, ofst))
+	{
+		cout << "Error of writing";
+	}
+    clearContainer(list);
     ofst << "Container cleared." << endl;
     cout << "Container cleared." << endl;
-    outContainer(head, ofst);
+    outContainer(list, ofst);
     cout << "Done!" << endl;
     system("pause");
     return 0;

@@ -16,7 +16,7 @@ struct Text {
     Key K;
 };
 Text* inText(ifstream& ifst);
-void outText(Text* C, ofstream& ofst);
+int outText(Text* C, ofstream& ofst);
 int textCounter(Text* T);
 
 struct Aphorism {
@@ -26,7 +26,7 @@ struct Aphorism {
     int mark;
 };
 Aphorism* inAphorism(ifstream& ifst);
-void outAphorism(Aphorism* T, ofstream& ofst);
+int outAphorism(Aphorism* T, ofstream& ofst);
 int aphorismCounter(Aphorism* T);
 
 struct Saying {
@@ -49,18 +49,24 @@ Riddle* inRiddle(ifstream& ifst);
 int riddleCounter(Riddle* T);
 void outRiddle(Riddle* T, ofstream& ofst);
 
-struct Container {
-    int length;
-    Text* current;
-    Container* prev;
-    Container* next;
+struct  Node 
+{
+		Text* current;
+		Node* prev;
+		Node* next;
 };
 
-void initContainer(Container* head, Container* tail);
-void inContainer(Container* head, Container* tail, ifstream& ifst);
-void outContainer(Container* head, ofstream& ofst);
-void clearContainer(Container* head, Container* tail);
-void sort(Container* head);
-void outFilter(Container* head, ofstream& ofst);
+struct Container 
+{
+	Node* head;
+	Node* tail;
+	int size;
+};
+void initContainer(Container* list);
+void inContainer(Container* list, ifstream& ifst);
+void outContainer(Container* list, ofstream& ofst);
+void clearContainer(Container* list);
+void sort(Container* list);
+int outFilter(Container* list, ofstream& ofst);
 
 #endif //CONTAINER_H

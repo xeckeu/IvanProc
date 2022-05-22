@@ -1,49 +1,40 @@
 ﻿#include "Header.h"
 
-void initContainer(Container* head, Container* tail) {
-    head->current = tail->current = NULL;
-    head->next = tail->next = NULL;
-    head->prev = tail->prev = NULL;
-    head->length = tail->length = 0;
+void initContainer(Container* list) {
+    list->head->current = list->tail->current = NULL;
+	list->head->next = list->tail->next = NULL;
+	list->head->prev = list->tail->prev = NULL;
+	list->size = list->size = 0;
 }
 
-void inContainer(Container* head, Container* tail, ifstream& ifst) {
-    Container* temp;
-    int length = 0;
+void inContainer(Container* list, ifstream& ifst) {
+    Node* temp=new Node;
     while (!ifst.eof()) {
-        temp = new Container();
-        temp->next = NULL;
-        temp->prev = NULL;
-        if (!length) {
-            if ((head->current = inText(ifst))) {
-                tail = head;
-                length++;
+        if (!list->size) {
+            if ((list->head->current = inText(ifst))) {
+                list->tail = list->head;
+                list->size++;
             }
         }
         else {
-            if ((temp->current = inText(ifst))) {
-                tail->next = temp;
-                head->prev = temp;
-                temp->prev = tail;
-                temp->next = head;
-                tail = temp;
-                length++;
+			if ((temp-> current = inText(ifst))) {
+                list->tail->next = temp;
+                list->head->prev = temp;
+                temp->prev = list->tail;
+                temp->next = list->head;
+                list->tail = temp;
+                list->size++;
             }
         }
     }
-    for (int i = 0; i < length; i++) {
-        head->length = length;
-        if (head->next) {
-            head = head->next;
-        }
-    }
+   
 }
 
-void outContainer(Container* head, ofstream& ofst) {
-    ofst << "Container contains " << head->length
+void outContainer(Container* list, ofstream& ofst) {
+    ofst << "Container contains " << list->size
         << " elements." << endl << endl;
-    Container* temp = head;
-    for (int i = 0; i < head->length; i++) {
+    Node* temp = list->head;
+    for (int i = 0; i < list->size; i++) {
         ofst << i << ": \n";
         outText(temp->current, ofst);
         if (temp->next) {
@@ -52,32 +43,31 @@ void outContainer(Container* head, ofstream& ofst) {
     }
 }
 
-void clearContainer(Container* head, Container* tail) {
-    Container* temp = head;
-    head->prev = NULL;
-    head->next = NULL;
-    for (int i = 0; i < head->length; i++) {
+void clearContainer(Container* list) {
+    Node* temp = list->head;
+    list->head->prev = NULL;
+    list->head->next = NULL;
+	for (int i = 0; i < list ->size; i++) {
         free(temp->current);
-        temp->length = 0;
         if (temp->next) {
             temp = temp->next;
             free(temp->prev);
         }
     }
-    head->length = 0;
+    list->size = 0;
 }
 
 bool compare(Text* a, Text* b) {
     return textCounter(a) < textCounter(b);
 }
 
-void sort(Container* head) {
-    if (head->length > 1) {
-        Container* first = head;
-        Container* second = head->next;
-        Container* temp = new Container;
-        for (int i = 0; i < head->length - 1; i++) {
-            for (int j = 0; j < head->length - i - 1; j++) {
+void sort(Container* list) {
+    if (list->size > 1) {
+        Node* first = list->head;
+		Node* second = list->head->next;
+		Node* temp = new Node;
+        for (int i = 0; i <list->size - 1; i++) {
+            for (int j = 0; j < list->size - i - 1; j++) {
                 if (compare(first->current, second->current)) {
                     temp->current = first->current;
                     first->current = second->current;
@@ -91,17 +81,29 @@ void sort(Container* head) {
     }
 }
 
-void outFilter(Container* head, ofstream& ofst) {
-    Container* temp = head;
-    for (int i = 0; i < head->length; i++) {
-        if (temp->current->K == APHORISM) {
-            ofst << i << ":\n";
-            outAphorism((Aphorism *)temp->current, ofst);
-            ofst << "[Punctuation]: " << textCounter(temp->current) << endl << endl;
+int outFilter(Container* list, ofstream& ofst) {
+    Node* temp = list->head;
+    for (int i = 0; i < list->size; i++) {
+		if (temp->current->K == APHORISM) {
+			ofst << i << ":\n";
+			int ret = outAphorism((Aphorism *)temp->current, ofst);
+			switch (ret)
+			{
+			case 0:
+			{
+				ofst << "[Punctuation]: " << textCounter(temp->current) << endl << endl;
+				break;
+			}
+			default:
+				return ret;
+			}
+
+         
         }
         if (temp->next) {
             temp = temp->next;
         }
+		return 0;
     }
 }
 
@@ -143,9 +145,12 @@ Text* inText(ifstream& ifst) {
     }
 }
 
-void outText(Text* T, ofstream& ofst) {
+int  outText(Text* T, ofstream& ofst) {
+	int ret = 0;
     if (T->K == APHORISM) {
-        outAphorism((Aphorism*)T, ofst);
+        ret = outAphorism((Aphorism*)T, ofst);
+		if (ret)
+			return ret;
     }
     else if (T->K == SAYING) {
         outSaying((Saying*)T, ofst);
@@ -156,6 +161,7 @@ void outText(Text* T, ofstream& ofst) {
     else {
         ofst << "Invalid element!" << endl;
     }
+	return 0;
 }
 
 int textCounter(Text* T){
@@ -224,12 +230,37 @@ int aphorismCounter(Aphorism* T) {
     return counter;
 }
 
-void outAphorism(Aphorism* T, ofstream& ofst) {
-    ofst << "[Aphorism]: " << T->text << endl;
-    ofst << "[Author]: " << T->author<< endl;
-    ofst << "[Punctuation]: " << textCounter((Text*)T) << endl;
-    ofst << "[Mark]: " << T->mark<< endl << endl;
+int outAphorism(Aphorism* T, ofstream& ofst) 
+{
+	ofst << "[Aphorism]: " << T->text << endl;
+	if (ofst.fail());
+	{
+		return 1;
+	}
+	ofst << "[Author]: " << T->author << endl;
+	if (ofst.fail());
+	{
+		return 2;
+	}
+	ofst << "[Punctuation]: " << textCounter((Text*)T) << endl;
+	if (ofst.fail());
+	{
+		return 3;
+
+	}
+
+	ofst << "[Mark]: " << T->mark << endl << endl;
+	if (ofst.fail());
+	{
+		return 4;
+
+	}
+	return 0;
+
 }
+
+	
+
 
 Saying* inSaying(ifstream& ifst) {
     Saying* T = new Saying();
